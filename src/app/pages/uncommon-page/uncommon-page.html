@@ -44,6 +44,20 @@
   <app-card title="JsonPipe">
     <pre class="text-primary">{{clients() | json}}</pre>
     <pre class="text-primary">{{clients() | json}}</pre>
-    <p class="text-primary">{{clients().join(', ') | json |uppercase}}</p>
+    <p class="text-primary">{{clients().join(', ') | json | uppercase}}</p>
+  </app-card>
+
+  <app-card title="KeyValuePipe">
+    <ul>
+      @for (item of profile | keyvalue; track $index) {
+      <li>
+        <span class="text-primary">
+          <strong>{{item.key | titlecase}}</strong>
+          {{item.value}}
+        </span>
+      </li>
+      }
+
+    </ul>
   </app-card>
 </div>
