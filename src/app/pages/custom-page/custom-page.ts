@@ -5,10 +5,21 @@ import { canFlyPipe } from '../../pipes/can-fly.pipe';
 import { heroColorPipe } from '../../pipes/herColor.pipe';
 import { heroTextColorPipe } from '../../pipes/hero-text-color.pipe';
 import { TitleCasePipe } from '@angular/common';
+import { heroCreatorPipe } from '../../pipes/hero-creator.pipe';
+import { heroSortByPipe } from '../../pipes/hero-sort-by.pipe';
+import { Hero } from '../../interfaces/her.interface';
 
 @Component({
   selector: 'app-custom-page',
-  imports: [ToggleCasePipe, canFlyPipe, heroColorPipe, heroTextColorPipe, TitleCasePipe],
+  imports: [
+    ToggleCasePipe,
+    canFlyPipe,
+    heroColorPipe,
+    heroTextColorPipe,
+    TitleCasePipe,
+    heroCreatorPipe,
+    heroSortByPipe,
+  ],
   templateUrl: './custom-page.html',
   styleUrl: './custom-page.css',
 })
@@ -18,4 +29,6 @@ export default class CustomPage {
   upperCase = signal(true);
 
   heroes = signal(heroes);
+
+  sortBy = signal<keyof Hero | null>(null);
 }
